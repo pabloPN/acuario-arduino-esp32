@@ -24,6 +24,7 @@ temperat?       touch 4    14 touch high     subida
 #include "EEPROM.h"
 #include <OneWire.h> //temp
 #include <DallasTemperature.h>
+#include <esp_task_wdt.h>//perro
 
 ////// BLUETOOTH //////
 #include "BluetoothSerial.h"

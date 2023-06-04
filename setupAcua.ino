@@ -4,8 +4,6 @@ bool Setup(const char* ssid, const char* password)
     Serial.begin(9600);
     Serial.println("Iniciando acuario...");
     Serial2.begin(9600);
-    
-    
     pinMode(PIN_AZUL, OUTPUT);
     pinMode(PIN_BLANCO, OUTPUT);
     pinMode(PIN_R_LUZ, OUTPUT);
@@ -73,5 +71,8 @@ bool Setup(const char* ssid, const char* password)
       horaArrayCalcio=0;
       horaArrayKh=0;
     Pantalla();
+    // Habilitar el T-Watchdog con un tiempo de espera de 5 segundos
+    esp_task_wdt_init(120, true);//perro 120 segundos
+    esp_task_wdt_add(NULL);//si no se ejecuta cada 120seg se reinicia
     return true;
 }

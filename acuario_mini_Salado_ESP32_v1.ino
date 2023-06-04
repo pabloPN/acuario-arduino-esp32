@@ -14,29 +14,9 @@
 // SetupLuces pin enciende apaga dimmero retraso ????
 
 #include "AcuarioM.h"
-#include <esp_task_wdt.h>//perro
-
 void setup() {
     Setup("MiFibra-7D4F", "u4utsxXL");
-    
-    // Habilitar el T-Watchdog con un tiempo de espera de 5 segundos
-    esp_task_wdt_init(120, true);//perro 120 segundos
-    esp_task_wdt_add(NULL);//si no se ejecuta cada 120seg se reinicia
-    
 }
 void loop() {
 Siempre();
-esp_task_wdt_reset();//si no
-//Serial.print("dfsdf");
-//borra();
-}
-void borra(){
-  if (SegActu()>=(cadaHora+30) || cadaHora>SegActu()){// mas de una Hora
-    ////// enviamos Temperatura //////
-       Cliente("mi.betulaludica.com", "/acua2020/enviaTempBD.php?temp=23.7");
-       Serial.println("String(hora+""+minuto)");    
-       //Cliente("mi.betulaludica.com", "/acua2020/enviaTempBD.php?temp="+ String(TempAcuario()) );    
-       //Cliente("mi.betulaludica.com","/acua2020/enviaIpBD.php");
-       cadaHora=SegActu();
-  }
 }

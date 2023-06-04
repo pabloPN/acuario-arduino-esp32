@@ -21,7 +21,7 @@ void Siempre()
   ////// cada Hora //////
 
   if (millis()>=(cadaHora+3600000) || cadaHora>millis()){//-+una Hora
-      if (TempAcuario()<23.30 ||TempAcuario()>27.03 ){
+      if (TempAcuario()<23.30 ||TempAcuario()>27.03){
           //tone(Palarma,50,500);delay(1000);tone(Palarma,50,500);
           Cliente("mi.betulaludica.com","/acua2020/enviaEerror.php?temp="+String(TempAcuario())); 
       }
@@ -36,7 +36,7 @@ void Siempre()
       LeerS2();
       LeeBlue();//bloq
       Luces(); //bloq  lee segactual y dimmea
-      
+      esp_task_wdt_reset();//si no
    //   Adita();//bloq
   
 }
